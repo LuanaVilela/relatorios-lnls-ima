@@ -1,0 +1,237 @@
+\documentclass[a4paper, 12pt]{lnls-note}
+%\documentclass[a4paper, 12pt, report]{lnls-note} % if you want to have chapters choose this one
+
+%loads standard preamble configuration
+\input{standard_preamble.tex}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+
+%loads standard commands
+\input{new_commands.tex}
+
+
+\begin{document}
+
+\lnlstitle{16 de Janeiro de 2018}{Resultados das simulações 2D dos ímãs de referência}
+{Luana Vilela}{\LNLS}
+{Neste relatório são apresentados os resultados das simulações 2D dos ímãs da referência para as medidas magnéticas. Estes ímãs serão compostos por blocos de magnetos permanentes seguindo o arranjo de Halbach. Os três ímãs, um dipolo, um quadrupolo  e um sextupolo, serão fabricados pela empresa Stanford Magnets.}
+\setcounter{page}{2}
+\newpage
+
+\section*{Simulações magnéticas}
+
+As simulações magnéticas foram feitas em 2D utilizando o software \textbf{MagNet}. 
+Foi utilizado o material \textbf{N52} para os blocos de imã permanente e o material \textbf{1006 Steel} para a envoltória de aço carbono.
+Todos os imãs foram simulados com as dimensões mostradas na figura abaixo.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.4\textwidth]{dim.png}
+\caption{Seção transversal dos ímãs de referência.}
+\end{center}
+\end{figure}
+
+\section*{Dipolo}
+
+Foram estudados os casos com 8 e 12 blocos de imã permanente. Os resultados são apresentados a seguir. 
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\textwidth]{campo_dipolo.png}
+\caption{Campo magnético dos dipolos compostos por 8 e 12 blocos de imã permanente.}
+\end{center}
+\end{figure}
+
+\begin{table}[hbt]
+\centering
+\caption{Homogeneidade da componente vertical do campo magnético do dipolo.}
+\begin{tabular}{ccccc}
+\toprule
+\multicolumn{5}{c}{\textbf{Homogeneidade [\%]}} \\
+\textbf{nº de blocos} & \textbf{x=3mm} & \textbf{x=6mm} & \textbf{x=10mm} & \textbf{x=20mm} \\ 
+\midrule
+8   &  0.48  & 1.93        & 5.27     & 20.52     	 \\ 
+12  &  $1\times10^{-6}$    &   $5\times10^{-6}$      & $6\times10^{-5}$      & 0.15     	 \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.85\textwidth]{campo_tr_dipolo.png}
+\caption{Componente tangencial e radial do campo magnético dos dipolos com 8 e 12 blocos para um raio de 18~mm.}
+\end{center}
+\end{figure}
+
+
+\begin{table}[hbt]
+\centering
+\caption{Amplitude do campo magnético vertical no centro do dipolo.}
+\begin{tabular}{cc}
+\toprule
+\textbf{nº de blocos} & \textbf{By [T]} \\ 
+\midrule
+8   &  0.801  \\ 
+12  &  1.045 \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[hbt]
+\centering
+\caption{Multipolos normalizados obtidos a partir da transformada de Fourier da componente radial do campo magnético do dipolo para um raio de 18~mm. Os multipolos residuais sistemáticos estão marcados em azul.}
+\begin{tabular}{ccccc}
+\toprule
+\multirow{2}{*}{\textbf{n}} & \multicolumn{2}{c}{\textbf{Normal}} & \multicolumn{2}{c}{\textbf{Skew}} \\ 
+ & \textbf{8 blocos} & \textbf{12 blocos} & \textbf{8 blocos} & \textbf{12 blocos} \\
+\midrule
+0	      &       1.0e+0	     &       1.0e+0	   &       2.2e-5        &       1.4e-6       \\	
+1	      &       5.9e-6	     &       -2.2e-9	   &       1.1e-7      &       8.4e-10       \\	
+2	      &       {\color{blue}-1.7e-1}  &       {\color{blue}-2.1e-7}	   &       1.9e-5      &       -4.2e-6       \\	
+3	      &       9.4e-7	     &       4.7e-9	   &       1.5e-7        &       -5.0e-9       \\	
+4	      &       {\color{blue}1.3e-2}    &   {\color{blue}-2.4e-6}	   &       7.8e-6      &       8.0e-7       \\	
+5	      &       1.7e-7	     &       -7.7e-9	   &       -6.6e-9     &       6.7e-9       \\	
+6	      &       {\color{blue}-1.1e-4}	     & {\color{blue}7.6e-7}	   &       -2.2e-6       &       9.5e-7       \\	
+7	      &       -2.4e-8	     &       6.8e-9	   &       -3.4e-8       &       -6.4e-9       \\	
+8	      &       {\color{blue}-5.1e-3}	     & {\color{blue}2.1e-7}	   &       7.4e-7        &       -4.4e-7       \\	
+9	      &       5.6e-9	     &       -3.0e-9	   &       1.5e-8      &       9.6e-9       \\	
+10	      &       {\color{blue}8.9e-4}	     &  {\color{blue}-8.5e-7}	   &       -1.2e-7     &       1.8e-8       \\	
+11	      &       3.1e-8	     &       9.9e-9	   &       1.3e-8        &       2.5e-9       \\	
+12	      &       {\color{blue}-7.9e-5}	     &  {\color{blue}-4.4e-4}	   &       -2.6e-7     &       7.2e-8       \\	
+13	      &       -3.4e-8	     &       -1.8e-8	   &       1.2e-8      &       -1.3e-9       \\	
+14	      &       {\color{blue}4.5e-8}	     &  {\color{blue}3.7e-10}	   &       2.3e-8      &       -2.7e-9       \\	
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{}
+Como pode ser observado a mudança de 8 para 12 blocos no dipolo aumenta a amplitude do campo magnético, reduz a região saturada da camada de aço carbono e amplia consideravelmente a qualidade do campo.
+
+\section*{Quadrupolo}
+
+Também foram estudados os efeitos da mudança de 8 para 12 blocos para o quadrupolo. As análises foram feitas para o caso de um quadrupolo skew para manter a compatibilidade com a direção da magnetização dos blocos enviada pelo fabricante.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\textwidth]{campo_quadrupolo.png}
+\caption{Campo magnético dos quadrupolos compostos por 8 e 12 blocos de imã permanente.}
+\end{center}
+\end{figure}
+
+\begin{table}[hbt]
+\centering
+\caption{Gradiente quadrupolar.}
+\begin{tabular}{cc}
+\toprule
+\textbf{nº de blocos} & \textbf{B' [T/m]} \\ 
+\midrule
+8   &  39.70  \\ 
+12  &  45.88 \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[hbt]
+\centering
+\caption{Multipolos normalizados obtidos a partir da transformada de Fourier da componente radial do campo magnético do quadrupolo para um raio de 18~mm. Os multipolos residuais sistemáticos estão marcados em azul.}
+\begin{tabular}{ccccc}
+\toprule
+\multirow{2}{*}{\textbf{n}} & \multicolumn{2}{c}{\textbf{Normal}} & \multicolumn{2}{c}{\textbf{Skew}} \\ 
+ & \textbf{8 blocos} & \textbf{12 blocos} & \textbf{8 blocos} & \textbf{12 blocos} \\
+\midrule
+0	      &       8.4e-7	    &       -1.3e-7	    &       1.2e-5        &       1.7e-7       \\	
+1	      &       1.7e-6	    &       -2.3e-6	    &       1.0e+0        &       1.0e+0       \\	
+2	      &       -1.3e-6	    &       2.0e-8	    &       -7.9e-6       &       -3.2e-8       \\	
+3	      &       -2.1e-5	    &       4.0e-6	    &       7.5e-6        &       4.5e-7       \\	
+4	      &       2.3e-7	    &       -2.7e-9	    &       5.4e-6        &       3.8e-9       \\	
+5	      &       -6.5e-6	    &       -4.8e-7	    &       {\color{blue}8.9e-4}  & {\color{blue}2.1e-7} \\	
+6	      &       -5.5e-8	    &       1.7e-10	    &       -1.8e-6       &       7.3e-9       \\	
+7	      &       -1.4e-7	    &       -7.8e-7	    &       -4.2e-7       &       5.8e-7       \\	
+8	      &       -4.5e-9	    &       -6.4e-9	    &       3.1e-7        &       -1.4e-9       \\	
+9	      &       -2.7e-7	    &       3.2e-7	    &       {\color{blue}-4.8e-3} & {\color{blue}4.7e-6}       \\	
+10	      &       -2.5e-8	    &       -4.1e-9     &       3.2e-8        &       -1.5e-8       \\	
+11	      &       -3.1e-8	    &       1.5e-8	     &       -2.2e-7     &       -1.5e-7       \\	
+12	      &       -3.0e-8	    &       7.7e-9	     &       3.6e-8      &       -5.5e-9       \\	
+13	      &       2.1e-7	    &       -3.3e-8     &       {\color{blue}-9.9e-8} & {\color{blue}-4.4e-4}       \\	
+14	      &       -1.5e-8	    &       6.4e-10     &       1.2e-8        &       4.3e-9       \\	
+\bottomrule
+\end{tabular}
+\end{table}
+
+Assim como no caso do dipolo, o modelo de 12 blocos tem uma região saturada menor que o modelo com 8 blocos. O gradiente quadrupolar é maior com 12 blocos e os multipolos residuais de baixa ordem são menores. 
+
+
+\section*{Sextupolo}
+
+Para o sextupolo apenas o modelo com 12 blocos foi analisado. Os resultados são mostrados abaixo.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{campo_sextupolo.png}
+\caption{Campo magnético do sextupolo com 12 blocos de ímã permanente.}
+\end{center}
+\end{figure}
+
+\begin{table}[hbt]
+\centering
+\caption{Gradiente sextupolar.}
+\begin{tabular}{cc}
+\toprule
+\textbf{nº de blocos} & \textbf{B'' [T/m²]} \\ 
+\midrule
+12  &  1539 \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\begin{table}[hbt]
+\centering
+\caption{Multipolos normalizados obtidos a partir da transformada de Fourier da componente radial do campo magnético do sextupolo para um raio de 18~mm. Os multipolos residuais sistemáticos estão marcados em azul.}
+\begin{tabular}{ccc}
+\toprule
+\textbf{n} & \textbf{Normal} & \textbf{Skew} \\ 
+\midrule
+0	      &       -4.0e-6	      &       7.2e-6       \\	
+1	      &       2.4e-7	      &       -3.1e-7       \\	
+2	      &       1.0e+0	      &       3.2e-6       \\	
+3	      &       -1.1e-7	      &       -2.7e-7       \\	
+4	      &       8.0e-7	      &       -4.8e-6       \\	
+5	      &       -2.2e-9	      &       9.2e-9       \\	
+6	      &       -2.4e-6	      &       4.8e-7       \\	
+7	      &       -1.2e-9	      &       -1.6e-8       \\	
+8	      &       {\color{blue}-3.3e-5}	      &       8.3e-7       \\	
+9	      &       5.8e-9	      &       -5.3e-9       \\	
+10	      &       1.9e-7	      &       -2.9e-7       \\	
+11	      &       -6.9e-9	      &       4.0e-9       \\	
+12	      &       -1.3e-7	      &       3.0e-8       \\	
+13	      &       -4.0e-9	      &       -1.4e-8       \\	
+14	      &       {\color{blue}-5.0e-4}	      &       6.1e-8       \\	
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section*{Anexo}
+
+Projeto enviado pela Stanford Magnets.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.95\textwidth]{Draft.pdf}
+\end{center}
+\end{figure}
+
+
+\end{document}
+
+
+
+
+
+
+
+
