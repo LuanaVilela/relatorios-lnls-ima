@@ -1,0 +1,177 @@
+\documentclass[a4paper, 12pt]{lnls-note}
+%\documentclass[a4paper, 12pt, report]{lnls-note} % if you want to have chapters choose this one
+
+%loads standard preamble configuration
+\input{standard_preamble.tex}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+
+%loads standard commands
+\input{new_commands.tex}
+
+\begin{document}
+
+\lnlstitle{05 de Setembro de 2018}{Calibração do encoder da bancada Kugler}
+{Reinaldo Basilio, Luana Vilela e James Citadini}{\LNLS}
+{Neste relatório são apresentados os resultados da calibração da régua do encoder longitudinal da bancada Kugler MMB-7000 que é utilizada no mapeamento do campo magnético com sensores Hall.}
+\setcounter{page}{2}
+\newpage
+
+\section*{Setup das medidas}
+O interferômetro XD~Laser (Automated Precision, Inc.) foi utilizado para medir os erros lineares e angulares da bancada Kugler MMB-7000. Os erros angulares dos eixos transversais foram verificados com o auto-colimador Elcomat~3000 (Moller-WedeL Optical GmbH).
+As medidas foram feitas utilizando os parâmetros especificados na Tabela~\ref{tab:param}. A figura~\ref{fig:coord} apresenta o sistema de coordenadas e a convenção adotada para os ângulos.
+
+\begin{table}[H]
+\centering
+\caption{Configuração das medidas para alinhamento da bancada}
+\begin{tabular}{cc}
+\toprule
+\textbf{Parâmetro} & \textbf{Valor} \\
+\midrule
+Movimentação & Eixo Z \\
+Intervalo & [-3400, 3400] \si{\milli\meter} \\
+Passo  &  200 \si{\milli\meter}  \\ 
+Velocidade & 100 \si{\milli\meter/\second} \\
+\bottomrule
+\end{tabular}
+\label{tab:param}
+\end{table}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\textwidth]{coord.png}
+\caption{Sistema de coordenadas adotado nas medidas (sistema padrão do interferômetro).}
+\label{fig:coord}
+\end{center}
+\end{figure}
+
+
+\section*{Medida Antes do Ajuste do Encoder}
+
+Inicialmente as medidas com o interferômetro foram utilizadas para fazer ajustes no posicionamento das bases da bancada a fim de corrigir erros angulares e lineares dos eixos transversais (eixos X e Y). A figura~\ref{fig:antes_ajustes_encoder} mostra os resultados após estas correções; os erros angulares são menores que \SI{2}{\arcsecond} e os erros lineares para os eixos X e Y são menores que \SI{5}{\micro\meter}. No entanto, a leitura dada pelo encoder da bancada para a posição longitudinal apresentou um erro de aproximadamente \SI{100}{\micro\meter} para o intervalo medido (que corresponde a metade do intervalo total de movimentação longitudinal da bancada). Por isso foi necessário reajustar a leitura do encoder longitudinal da bancada.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{antes_ajustes_encoder.png}
+\caption{Erros lineares e angulares dos eixos da bancada Kugler MMB-7000 antes do ajuste da régua do encoder. Os erros lineares estão em milímetros e os erros angulares em arco segundos.}
+\label{fig:antes_ajustes_encoder}
+\end{center}
+\end{figure}
+
+\section*{Medidas Depois do Ajuste do Encoder}
+
+A régua do encoder longitudinal possui 5 pontos de fixação ao longo da bancada. A leitura da posição longitudinal do encoder foi recalibrada ajustando a tesão na régua em cada um destes pontos. Depois de realizar essa correção foram feitas medidas com o interferômetro e com o auto-colimador para checar o alinhamento final da bancada. Durante as medidas algumas das condições ambientes foram variadas, como ligar ou desligar o ar condicionado ou apagar as luzes da sala de caracterização. No entanto, não foi observada nenhuma correlação entre as condições ambientes e os valores medidos. Os resultados são apresentados abaixo.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{linear_error.png}
+\caption{Erro linear longitudinal da bancada após a calibração da régua do encoder. As medidas M1, M2, M3, M4 e M5 foram feitas com as luzes e o ar condicionado ligados. A medida M6 foi feita com o ar condicionado ligado e as luzes apagadas e as medidas M7, M8 e M9 foram feitas com o ar condicionado desligado e as luzes apagadas.}
+\label{fig:linear_error}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{horizontal_straightness.png}
+\caption{Erro linear horizontal.}
+\label{fig:horizontal_straightness}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{vertical_straightness.png}
+\caption{Erro linear vertical.}
+\label{fig:vertical_straightness}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{yaw.png}
+\caption{Erro angular A (Yaw) medido com o interferômetro.}
+\label{fig:yaw}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{yaw_col.png}
+\caption{Erro angular A (Yaw) medido com o auto-colimador.}
+\label{fig:yaw_col}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{pitch.png}
+\caption{Erro angular B (Pitch) medido com o interferômetro.}
+\label{fig:pitch}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{pitch_col.png}
+\caption{Erro angular B (Picth) medido com o auto-colimador.}
+\label{fig:pitch_col}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{roll.png}
+\caption{Erro angular C (Roll).}
+\label{fig:roll}
+\end{center}
+\end{figure}
+
+As figuras~\ref{fig:yaw_avg}e~\ref{fig:pitch_avg} mostram o valor médio das medidas realizadas com o espectrômetro e com o autocolimador. O coeficiente de correlação entre as medidas feitas com os dois equipamentos é de 0.88 para o ângulo A e 0.73 para o ângulo B.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{yaw_avg.png}
+\caption{Erro angular A (Yaw).}
+\label{fig:yaw_avg}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{pitch_avg.png}
+\caption{Erro angular B (Pitch).}
+\label{fig:pitch_avg}
+\end{center}
+\end{figure}
+
+A tabela~\ref{tab:result} mostra os resultados finais obtidos após a recalibração do encoder da bancada.
+
+\begin{table}[H]
+\centering
+\caption{Erros de alinhamento da bancada MMB-7000 após o ajuste do encoder.}
+\begin{tabular}{cc}
+\toprule
+Erro linear longitudinal  & $< \pm$ 6 \si{\micro\meter} \\
+Erro linear horizontal & $< \pm$ \SI{12}{\micro\meter} \\
+Erro linear vertical  & $< \pm$ \SI{12}{\micro\meter} \\
+Ângulo A (Yaw)  & $< \pm$ \SI{3}{\arcsecond} \\
+Ângulo B (Pitch)  & $< \pm$ \SI{2}{\arcsecond} \\
+Ângulo C (Roll)  & $< \pm$ \SI{2}{\arcsecond} \\
+\bottomrule
+\end{tabular}
+\label{tab:result}
+\end{table}
+
+
+\end{document}
+
+
+
+
+
+
+
+
