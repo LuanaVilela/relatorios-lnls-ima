@@ -1,0 +1,181 @@
+\documentclass[a4paper, 12pt]{lnls-note}
+%\documentclass[a4paper, 12pt, report]{lnls-note} % if you want to have chapters choose this one
+
+%loads standard preamble configuration
+\input{standard_preamble.tex}
+
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{floatrow}
+\floatsetup[table]{capposition=top}
+
+%loads standard commands
+\input{new_commands.tex}
+\setlength{\tabcolsep}{12pt}
+
+\begin{document}
+
+\lnlstitle{28 de Fevereiro de 2018}{Simulações do campo magnético gerado pelos cabos das fontes de corrente do Sirius}
+{Luana Vilela}{\LNLS}
+{Neste relatório são apresentados os resultados das simulações magnéticas para o campo gerado pelos cabos das fontes de corrente dos imãs na região em torno do feixe de elétrons tanto do Booster como do anel de armazenamento do Sirius.}
+
+\setcounter{page}{2}
+\newpage
+
+\section*{Simulações magnéticas}
+As simulações magnéticas foram feitas com o software MagNet. O modelo utilizado nas simulações é mostrado na figura \ref{fig:modelo_2d}. O aço CR10 (Cold rolled 1010 steel) foi usado para os materiais das calhas e berços. Devido a distância entre os berços não há influência entre os campos gerados pelos cabos do anel e do Booster, por isso foram feitas simulações separadas para cada acelerador. Os valores de corrente utilizados para cada família de ímã são apresentados nas tabelas~\ref{table:bo_correntes}~e~\ref{table:si_correntes}.   
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.9\textwidth]{modelo2D.png}
+\caption{Modelo 2D dos componentes utilizados nas simulações.}
+\label{fig:modelo_2d}
+\end{center}
+\end{figure}
+
+\begin{table}[H]
+\centering
+\caption{Corrente nominal de extração dos ímãs do Booster.}
+\begin{tabular}{cc}
+\toprule
+\textbf{Família do ímã} & \textbf{Corrente [A]} \\ 
+\midrule
+BD &  1034.0\\
+BQF & 114.0\\
+BQD & 30.4\\
+BS & 142.0\\
+\bottomrule
+\end{tabular}
+\label{table:bo_correntes}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Corrente nominal dos ímãs do anel de armazenamento.}
+\begin{tabular}{cc}
+\toprule
+\textbf{Família do ímã} & \textbf{Corrente [A]} \\ 
+\midrule
+B1/B2 & 380.00 \\
+QFA  & 122.45  \\
+QFB  & 139.81  \\
+QFP  & 139.81  \\
+QDA  & -64.12  \\
+QDB1 & -79.34  \\
+QDB2 & -135.09 \\
+QDP1 & -79.34  \\
+QDP2 & -135.09 \\
+Q1   & 96.49   \\
+Q2   & 148.81  \\
+Q3   & 110.88  \\
+Q4   & 134.81  \\ 
+SDA0 & -53.38  \\
+SDB0 & -42.88  \\
+SDP0 & -42.88  \\
+SFA0 & 34.71   \\
+SFB0 & 48.69   \\
+SFP0 & 48.69   \\
+SDA1 & -107.62 \\
+SDA2 & -58.67  \\
+SDA3 & -92.41  \\
+SFA1 & 126.67  \\
+SFA2 & 99.56   \\
+SDB1 & -93.52  \\
+SDB2 & -80.71  \\
+SDB3 & -114.77 \\
+SFB1 & 150.47  \\
+SFB2 & 130.62  \\
+SDP1 & -93.97  \\
+SDP2 & -80.74  \\
+SDP3 & -115.00 \\
+SFP1 & 151.38  \\
+SFP2 & 131.08  \\
+\bottomrule
+\end{tabular}
+\label{table:si_correntes}
+\end{table}
+
+\newpage
+
+\section*{Booster}
+As figuras~\ref{fig:bo}~e~\ref{fig:bo_field} mostram a distribuição dos cabos de alimentação das fontes do Booster e os resultados das simulações magnéticas. A média do campo magnético campo vertical no eixo é de \SI{0.28}{G}. Considerando esse valor constante ao longo de todo o comprimento do Booster obtemos um erro de deflexão de aproximadamente \SI{1.4}{\milli\radian} devido ao campo gerado pelos cabos de alimentação.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\textwidth]{bo.png}
+\caption{Distribuição de correntes nos cabos das fontes de alimentação do Booster.}
+\label{fig:bo}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.7\textwidth]{bo_field.png}
+\caption{Campo magnético gerado pelos cabos das fontes dos ímãs do Booster no plano da órbita dos elétrons.}
+\label{fig:bo_field}
+\end{center}
+\end{figure}
+
+\newpage
+
+\section*{Anel de armazenamento}
+
+\subsection*{Pior Caso}
+ Inicialmente foi considerado o caso em que todas as corrente tem o mesmo sentido para testar a influência dos cabos no campo magnético em torno da posição de referência do feixe de elétrons. A soma total da corrente neste caso é de \si{3284}{A}. Os resultados são apresentados na figura~\ref{fig:si_pior_caso}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\textwidth]{si_pior_caso.png}
+\caption{Campo magnético gerado pelos cabos das fontes dos ímãs do anel de armazenamento no caso em que todas as correntes tem o mesmo sentido (pior caso).}
+\label{fig:si_pior_caso}
+\end{center}
+\end{figure}
+
+\subsection*{Caso Otimizado}
+O otimização do campo magnético na região próxima ao feixe foi feita escolhendo a distribuição de correntes que minimizava a soma total das correntes dos cabos. O valor mínimo obtido foi de \SI{1.2}{A}. Os resultados para este caso otimizado são mostrados na figura~\ref{fig:si_otimizado} e a distribuição de correntes é apresentada na figura~\ref{fig:si_otimizado_cabos}.
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=\textwidth]{si_otimizado.png}
+\caption{Campo magnético gerado pelos cabos das fontes dos ímãs do anel de armazenamento no caso otimizado.}
+\label{fig:si_otimizado}
+\end{center}
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.9\textwidth]{si_otimizado_cabos.png}
+\caption{Distribuição otimizada de correntes nos cabos das fontes do anel de armazenamento.}
+\label{fig:si_otimizado_cabos}
+\end{center}
+\end{figure}
+
+A tabela~\ref{tab:si} mostra os valores médios do campo magnético na região [-12, 12] mm em torno do feixe para ambos os casos citados. A estimativa para o erro de deflexão total no anel de armazenamento é de \SI{0.7}{\milli\radian} para a distribuição otimizada de correntes.
+
+\begin{table}[hbt]
+\centering
+\caption{Campo magnético gerado pelos cabos da fonte de corrente do anel de armazenamento.}
+\begin{tabular}{lcccc}
+\toprule
+ & $B_{x_{avg}} [G]$ & $B_{y_{avg}} [G]$ \\ 
+\midrule
+Pior caso & -2.2  & -7.5 \\
+Caso otimizado & -0.02 & -0.14\\
+\bottomrule
+\end{tabular}
+\label{tab:si}
+\end{table}
+
+\qquad
+
+\textbf{Observação:} Nas simulações do anel de armazenamento o suporte do berço foi considerado um bloco maciço de aço (conforme mostrado na figura~\ref{fig:modelo_2d}). No entanto a parte interna do suporte será composta principalmente de concreto, assim, é esperado que o campo magnético próximo ao feixe de elétrons seja menor que os valores obtidos com este modelo. 
+
+\end{document}
+
+
+
+
+
+
+
+
